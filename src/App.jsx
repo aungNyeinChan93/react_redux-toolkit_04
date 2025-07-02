@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "./feature/counter/counterSlice";
-import { changeName, changeEmail } from "./feature/user/userSlice";
+import { changeName, changeEmail, addSkill } from "./feature/user/userSlice";
+import { addProduct, dropProduct } from "./feature/product/productSlice";
 
 const App = () => {
   const { count } = useSelector((store) => store.counter);
   const { name, email, skill } = useSelector((store) => store.user);
+  const productStore = useSelector((store) => store.product);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(addSkill(["a", "adsf", "adsfas"]));
+  }, []);
+
   const [myname, setMyname] = useState("");
-  const [myEmail, setEmail] = useState("");
 
   const change = () => {
-    dispatch(changeEmail(myEmail));
     dispatch(changeName(myname));
-    alert(`change!`);
+    // alert(`change!`);
   };
+
+  console.log(productStore.products);
+
   return (
     <React.Fragment>
       <section>
@@ -35,17 +42,36 @@ const App = () => {
         <input
           placeholder="email "
           type="text"
-          value={myEmail}
-          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          onChange={(e) => dispatch(changeEmail(e.target.value))}
         />
         <button type="button" onClick={change}>
           Change name
         </button>
 
         {skill &&
-          skill?.map((s) => {
-            return <li key={s}>{s}</li>;
+          skill?.map((s, index) => {
+            return <li key={index}>{s}</li>;
           })}
+
+        <ul>
+          {productStore?.products?.map((p) => {
+            return (
+              <li key={p.name}>
+                {p.name}
+                <button onClick={() => dispatch(dropProduct(p.name))}>
+                  del
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+        <button
+          type="button"
+          onClick={() => dispatch(addProduct({ name: "test_1" }))}
+        >
+          Add Products
+        </button>
       </section>
     </React.Fragment>
   );
