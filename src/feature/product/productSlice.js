@@ -1,9 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const getFetchProducts = async () => {
+    try {
+        const response = await fetch(`https://fakestoreapi.com/products`);
+        if (!response.ok) {
+            throw new Error('get products fail!')
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(error.message)
+    }
+}
+const products = await getFetchProducts();
+
 export const productSlice = createSlice({
     name: 'product',
     initialState: {
-        products: [{ name: 'products_1' }, { name: 'product-2' }]
+        products
     },
     reducers: {
         getProducts: (state) => {
@@ -15,7 +29,7 @@ export const productSlice = createSlice({
             }
         },
         dropProduct: (state, action) => {
-            state.products = state.products.filter(p => p.name !== action.payload);
+            state.products = state.products.filter(p => p.title !== action.payload);
         }
     }
 });

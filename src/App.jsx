@@ -57,9 +57,9 @@ const App = () => {
         <ul>
           {productStore?.products?.map((p) => {
             return (
-              <li key={p.name}>
-                {p.name}
-                <button onClick={() => dispatch(dropProduct(p.name))}>
+              <li key={p.id}>
+                {p.title}
+                <button onClick={() => dispatch(dropProduct(p.title))}>
                   del
                 </button>
               </li>
@@ -68,7 +68,7 @@ const App = () => {
         </ul>
         <button
           type="button"
-          onClick={() => dispatch(addProduct({ name: "test_1" }))}
+          onClick={() => dispatch(addProduct({ title: "test_1" }))}
         >
           Add Products
         </button>
