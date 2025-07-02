@@ -6,7 +6,7 @@ const TestPage = () => {
   return (
     <React.Fragment>
       <h1>TestPage</h1>
-      {testState?.name}
+      {testState?.name} || {testState?.skills}
       <button
         className="btn btn-sm btn-error"
         onClick={() =>
@@ -14,6 +14,14 @@ const TestPage = () => {
         }
       >
         Change Name
+      </button>
+      <button
+        className="btn btn-sm "
+        onClick={() =>
+          testDispatch({ type: "ADD_SKILL", payload: "skill one" })
+        }
+      >
+        Add Skill
       </button>
     </React.Fragment>
   );
