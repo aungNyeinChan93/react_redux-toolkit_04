@@ -3,16 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "./feature/counter/counterSlice";
 import { changeName, changeEmail, addSkill } from "./feature/user/userSlice";
 import { addProduct, dropProduct } from "./feature/product/productSlice";
+import { fetchPosts } from "./feature/posts/postsSlice";
+import SingleCard from "./components/other/SingleCard";
 
 const App = () => {
   const { count } = useSelector((store) => store.counter);
   const { name, email, skill } = useSelector((store) => store.user);
   const productStore = useSelector((store) => store.product);
+  const { posts, status, error } = useSelector((store) => store.posts);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(addSkill(["a", "adsf", "adsfas"]));
-  }, []);
+    if (status === "idle") {
+      dispatch(fetchPosts());
+    }
+  }, [status, dispatch]);
 
   const [myname, setMyname] = useState("");
 
@@ -72,6 +78,19 @@ const App = () => {
         >
           Add Products
         </button>
+
+        <section
+          data-theme="forest"
+          className="flex justify-center items-center lg:w-[1500px] mx-auto p-4"
+        >
+          <div className="grid grid-cols-3 gap-4  p-5" data-theme="dark">
+            {posts &&
+              status === "success" &&
+              posts?.map((post) => {
+                return <SingleCard {...post} />;
+              })}
+          </div>
+        </section>
       </section>
     </React.Fragment>
   );
