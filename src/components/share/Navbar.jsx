@@ -31,14 +31,26 @@ const Navbar = () => {
                 Posts
               </NavLink>
             </span>
+
             <span>
               <NavLink
-                to={"/test"}
+                to={"/cats"}
                 className={({ isActive }) =>
                   isActive ? " text-green-400" : "text-slate-300"
                 }
               >
-                Test
+                Cats
+              </NavLink>
+            </span>
+
+            <span>
+              <NavLink
+                to={"/tests"}
+                className={({ isActive }) =>
+                  isActive ? " text-green-400" : "text-slate-300"
+                }
+              >
+                Tests
               </NavLink>
             </span>
           </div>
