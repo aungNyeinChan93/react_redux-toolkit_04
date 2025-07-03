@@ -5,6 +5,7 @@ import PostPage from './pages/PostPage';
 import CatPage from './pages/CatPage';
 import TestPage from './pages/TestPage';
 import DogPage from './pages/DogPage';
+import GitHubUserPage from './pages/GitHubUserPage';
 
 
 const router = createBrowserRouter([
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
             { path: '/posts', Component: PostPage },
             { path: '/cats', Component: CatPage },
             { path: '/dogs', Component: DogPage },
+            { path: '/users', Component: GitHubUserPage },
             { path: '/tests', Component: TestPage },
         ]
     }

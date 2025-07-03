@@ -8,6 +8,7 @@ import dogsSlice from './feature/dogs/dogsSlice';
 import cafeSlice from './feature/cafe/cafeSlice';
 import logger from 'redux-logger';
 import sugarSlice from './feature/sugar/sugarSlice';
+import usersSlice from './feature/githubUsers/usersSlice';
 
 export const store = configureStore({
     reducer: {
@@ -17,8 +18,9 @@ export const store = configureStore({
         posts: postsSlice.reducer,
         cats: catsSlice.reducer,
         dogs: dogsSlice.reducer,
+        users: usersSlice.reducer,
         cafe: cafeSlice.reducer,
-        sugar: sugarSlice.reducer
+        sugar: sugarSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware().concat(logger)
