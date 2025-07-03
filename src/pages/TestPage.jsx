@@ -9,6 +9,7 @@ import {
   orderCake,
   orderCoffee,
 } from "../feature/cafe/cafeSlice";
+import Form from "../components/other/Form";
 
 const TestPage = () => {
   const { testState, testDispatch } = useTestReducer();
@@ -58,7 +59,7 @@ const TestPage = () => {
         </div>
       </section>
 
-      {/* Cafe Shop Section */}
+      {/* Cafe Shop Section with useReducer */}
       <section className="max-w-2xl mx-auto bg-cyan-100 rounded-2xl shadow-lg p-8 mb-10">
         <h3 className="text-center text-2xl font-semibold text-red-500 underline mb-6">
           Cafe Shop
@@ -134,6 +135,11 @@ const TestPage = () => {
             Fill Coffee
           </button>
         </div>
+      </section>
+
+      {/* Form */}
+      <section className="p-4 my-2">
+        <Form />
       </section>
     </div>
   );
