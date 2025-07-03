@@ -17,6 +17,8 @@ const TestPage = () => {
 
   const { count } = useSelector((store) => store.counter);
 
+  const { sugar } = useSelector((store) => store.sugar);
+
   const {
     cakes: myCakes,
     coffee: myCoffees,
@@ -117,6 +119,7 @@ const TestPage = () => {
         <div className="flex justify-between items-center p-4 bg-red-400 rounded-xl shadow text-white font-semibold text-lg">
           <span>Cakes: {myCakes}</span>
           <span>Coffee: {myCoffees}</span>
+          <span>Sugar: {sugar}</span>
         </div>
         <div className="flex justify-between items-center my-4">
           <button className="btn btn-sm" onClick={() => dispatch(orderCake(1))}>
