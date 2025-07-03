@@ -21,6 +21,7 @@ const useCafeShop = () => {
     }
     return state;
   };
+
   const [cafeState, cafeDispatch] = useReducer(cafeReducer, initialState);
 
   return { cafeState, cafeDispatch };

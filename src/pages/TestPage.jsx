@@ -6,7 +6,10 @@ import useCafeShop from "../hooks/useCafeShop";
 const TestPage = () => {
   const { testState, testDispatch } = useTestReducer();
 
-  const { cafeState, cafeDispatch } = useCafeShop();
+  const {
+    cafeState: { coffees, cakes },
+    cafeDispatch,
+  } = useCafeShop();
 
   return (
     <React.Fragment>
@@ -37,6 +40,8 @@ const TestPage = () => {
           </button>
         </div>
       </div>
+
+      {/* UI TESTING */}
       <section className="p-6 w-full my-8 bg-cyan-200 min-h-[200px] rounded-3xl shadow-lg">
         <h3 className="text-center text-2xl font-semibold text-red-500 underline mb-4">
           Cafe Shop
@@ -45,15 +50,11 @@ const TestPage = () => {
           <div>
             <div>
               <p className="p-2 rounded text-xl mt-4 text-red-400 text-center">
-                Number of Cakes:{" "}
-                <span className="font-bold text-gray-800">
-                  {cafeState.cakes}
-                </span>
+                Number of Cakes:
+                <span className="font-bold text-gray-800">{cakes}</span>
                 <span className="mx-2 text-gray-400">|</span>
-                Number of Coffee:{" "}
-                <span className="font-bold text-gray-800">
-                  {cafeState.coffees}
-                </span>
+                Number of Coffee:
+                <span className="font-bold text-gray-800">{coffees}</span>
               </p>
             </div>
             <div className="flex flex-wrap justify-center items-center gap-4 mt-6">

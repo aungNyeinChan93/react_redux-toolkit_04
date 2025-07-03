@@ -4,6 +4,7 @@ import userSlice from './feature/user/userSlice';
 import productSlice from './feature/product/productSlice';
 import postsSlice from './feature/posts/postsSlice';
 import catsSlice from './feature/cats/catsSlice';
+import dogsSlice from './feature/dogs/dogsSlice';
 
 export const store = configureStore({
     reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
         user: userSlice.reducer,
         product: productSlice.reducer,
         posts: postsSlice.reducer,
-        cats: catsSlice.reducer
+        cats: catsSlice.reducer,
+        dogs: dogsSlice.reducer
     }
 });
 
