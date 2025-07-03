@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import { orderCake } from '../cafe/cafeSlice'
 
 const counterSlice = createSlice({
     name: 'counter',
@@ -13,6 +13,11 @@ const counterSlice = createSlice({
         decrement: (state) => {
             state.count--;
         },
+    },
+    extraReducers: (builder) => {
+        builder.addCase(orderCake, (state) => {
+            state.count += 3000;
+        })
     }
 
 });

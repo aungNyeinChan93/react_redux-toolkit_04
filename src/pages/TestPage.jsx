@@ -8,15 +8,20 @@ import {
   fillCoffee,
   orderCake,
   orderCoffee,
+  addTest,
 } from "../feature/cafe/cafeSlice";
 import Form from "../components/other/Form";
 
 const TestPage = () => {
   const { testState, testDispatch } = useTestReducer();
 
-  const { cakes: myCakes, coffee: myCoffees } = useSelector(
-    (store) => store.cafe
-  );
+  const { count } = useSelector((store) => store.counter);
+
+  const {
+    cakes: myCakes,
+    coffee: myCoffees,
+    test,
+  } = useSelector((store) => store.cafe);
   const dispatch = useDispatch();
 
   const {
@@ -104,6 +109,7 @@ const TestPage = () => {
       </section>
 
       {/* Redux CafeSlice Section */}
+      <p className="text-slate-800 text-center p-4">Count - {count}</p>
       <section className="max-w-lg mx-auto bg-amber-300 p-4 rounded-2xl">
         <p className="text-green-400 text-2xl text-center p-2 underline">
           Coffee Shop{" "}
@@ -140,6 +146,11 @@ const TestPage = () => {
       {/* Form */}
       <section className="p-4 my-2">
         <Form />
+      </section>
+
+      <section>
+        <span className="text-slate-600">{test}</span>
+        <button onClick={() => dispatch(addTest())}>Add Test</button>
       </section>
     </div>
   );

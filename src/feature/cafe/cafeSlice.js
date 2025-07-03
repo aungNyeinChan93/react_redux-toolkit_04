@@ -5,7 +5,8 @@ const cafeSlice = createSlice({
     name: 'cafe',
     initialState: {
         cakes: 100,
-        coffee: 100
+        coffee: 100,
+        test: ' Hello world!'
     },
     reducers: {
         orderCake(state, action) {
@@ -19,10 +20,13 @@ const cafeSlice = createSlice({
         },
         fillCoffee(state, action) {
             state.coffee = state.coffee + action.payload
+        },
+        addTest: (state) => {
+            state.test = 'hihi';
         }
     }
 });
 
 
 export default cafeSlice;
-export const { fillCake, fillCoffee, orderCake, orderCoffee } = cafeSlice.actions;
+export const { fillCake, fillCoffee, orderCake, orderCoffee, addTest } = cafeSlice.actions;
