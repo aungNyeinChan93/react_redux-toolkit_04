@@ -8,6 +8,7 @@ import DogPage from './pages/DogPage';
 import GitHubUserPage from './pages/GitHubUserPage';
 import PhotoPage from './pages/PhotoPage';
 import RecipePage from './pages/RecipePage';
+import QuotePage from './pages/QuotePage';
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
             { path: '/users', Component: GitHubUserPage },
             { path: '/photos', Component: PhotoPage },
             { path: '/recipes', Component: RecipePage },
+            { path: '/quotes', Component: QuotePage },
             { path: '/tests', Component: TestPage },
         ]
     }

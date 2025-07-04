@@ -12,6 +12,7 @@ import usersSlice from './feature/githubUsers/usersSlice';
 import photoSlice from './feature/photo/photoSlice';
 import recipeSlice from './feature/recipe/recipeSlice';
 import userApi from './services/userApi';
+import quoteApi from './services/quoteApi';
 
 export const store = configureStore({
     reducer: {
@@ -26,10 +27,11 @@ export const store = configureStore({
         sugar: sugarSlice.reducer,
         photos: photoSlice.reducer,
         recipes: recipeSlice.reducer,
-        [userApi.reducerPath]: userApi.reducer
+        [userApi.reducerPath]: userApi.reducer,
+        [quoteApi.reducerPath]: quoteApi.reducer
     },
     middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware().concat(logger, userApi.middleware)
+        return getDefaultMiddleware().concat(logger, userApi.middleware, quoteApi.middleware)
     }
 });
 

@@ -89,6 +89,17 @@ const Navbar = () => {
 
             <span>
               <NavLink
+                to={"/quotes"}
+                className={({ isActive }) =>
+                  isActive ? " text-green-400" : "text-slate-300"
+                }
+              >
+                Quotes
+              </NavLink>
+            </span>
+
+            <span>
+              <NavLink
                 to={"/tests"}
                 className={({ isActive }) =>
                   isActive ? " text-green-400" : "text-slate-300"

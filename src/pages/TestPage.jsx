@@ -12,6 +12,7 @@ import {
 } from "../feature/cafe/cafeSlice";
 import Form from "../components/other/Form";
 import { useGetUserQuery, useGetUsersQuery } from "../services/userApi";
+import { useGetQuotesQuery } from "../services/quoteApi";
 
 const TestPage = () => {
   const { testState, testDispatch } = useTestReducer();
@@ -35,6 +36,9 @@ const TestPage = () => {
   const { data } = useGetUsersQuery();
 
   const { data: userTwo } = useGetUserQuery(Number(2));
+
+  const { data: quotes } = useGetQuotesQuery();
+  console.log(quotes);
 
   console.log(userTwo);
 
