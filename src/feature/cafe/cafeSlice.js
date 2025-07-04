@@ -6,7 +6,7 @@ const cafeSlice = createSlice({
     initialState: {
         cakes: 100,
         coffee: 100,
-        test: ' Hello world!'
+        test: ' Hello'
     },
     reducers: {
         orderCake(state, action) {

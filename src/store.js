@@ -10,6 +10,8 @@ import logger from 'redux-logger';
 import sugarSlice from './feature/sugar/sugarSlice';
 import usersSlice from './feature/githubUsers/usersSlice';
 import photoSlice from './feature/photo/photoSlice';
+import recipeSlice from './feature/recipe/recipeSlice';
+import userApi from './services/userApi';
 
 export const store = configureStore({
     reducer: {
@@ -22,10 +24,12 @@ export const store = configureStore({
         users: usersSlice.reducer,
         cafe: cafeSlice.reducer,
         sugar: sugarSlice.reducer,
-        photos: photoSlice.reducer
+        photos: photoSlice.reducer,
+        recipes: recipeSlice.reducer,
+        [userApi.reducerPath]: userApi.reducer
     },
     middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware().concat(logger)
+        return getDefaultMiddleware().concat(logger, userApi.middleware)
     }
 });
 

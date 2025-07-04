@@ -11,6 +11,7 @@ import {
   addTest,
 } from "../feature/cafe/cafeSlice";
 import Form from "../components/other/Form";
+import { useGetUserQuery, useGetUsersQuery } from "../services/userApi";
 
 const TestPage = () => {
   const { testState, testDispatch } = useTestReducer();
@@ -30,6 +31,14 @@ const TestPage = () => {
     cafeState: { coffees, cakes },
     cafeDispatch,
   } = useCafeShop();
+
+  const { data } = useGetUsersQuery();
+
+  const { data: userTwo } = useGetUserQuery(Number(2));
+
+  console.log(userTwo);
+
+  console.log(data?.users);
 
   return (
     <div className="min-h-screen bg-gray-50 py-10">
@@ -154,6 +163,13 @@ const TestPage = () => {
       <section>
         <span className="text-slate-600">{test}</span>
         <button onClick={() => dispatch(addTest())}>Add Test</button>
+      </section>
+
+      <section className="bg-red-300 p-4">
+        {data?.users &&
+          data?.users?.map((user) => {
+            return <li key={user.id}> {user.firstName}</li>;
+          })}
       </section>
     </div>
   );

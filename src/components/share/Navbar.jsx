@@ -78,6 +78,17 @@ const Navbar = () => {
 
             <span>
               <NavLink
+                to={"/recipes"}
+                className={({ isActive }) =>
+                  isActive ? " text-green-400" : "text-slate-300"
+                }
+              >
+                Recipes
+              </NavLink>
+            </span>
+
+            <span>
+              <NavLink
                 to={"/tests"}
                 className={({ isActive }) =>
                   isActive ? " text-green-400" : "text-slate-300"
