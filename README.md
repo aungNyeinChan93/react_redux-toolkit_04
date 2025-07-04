@@ -4,6 +4,10 @@ A modern, scalable React application template using Redux Toolkit for state mana
 
 ---
 
+## Open in StackBlitz
+
+ [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/~/github.com/aungNyeinChan93/react_redux-toolkit_04)
+
 ## ✨ Features
 
 - **React 19** with functional components and hooks
