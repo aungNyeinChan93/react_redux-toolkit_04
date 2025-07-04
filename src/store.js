@@ -9,6 +9,7 @@ import cafeSlice from './feature/cafe/cafeSlice';
 import logger from 'redux-logger';
 import sugarSlice from './feature/sugar/sugarSlice';
 import usersSlice from './feature/githubUsers/usersSlice';
+import photoSlice from './feature/photo/photoSlice';
 
 export const store = configureStore({
     reducer: {
@@ -21,6 +22,7 @@ export const store = configureStore({
         users: usersSlice.reducer,
         cafe: cafeSlice.reducer,
         sugar: sugarSlice.reducer,
+        photos: photoSlice.reducer
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware().concat(logger)
